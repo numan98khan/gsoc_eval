@@ -20,27 +20,27 @@ print("")
 print("Task 2:")
 print("Wait...")
 
-# with open("path.csv", "w") as f:
-#         f.truncate()
-#         f.write("Path,DataType,Size,Shape"+"\n")
+with open("path.csv", "w") as f:
+        f.truncate()
+        f.write("Path,DataType,Size,Shape"+"\n")
 
-# def appendToCSV(string, clear):
-#     with open("path.csv", "a") as f:
-#         f.write(string + "\n")
+def appendToCSV(string, clear):
+    with open("path.csv", "a") as f:
+        f.write(string + "\n")
 
-# def recurExplore(name, Object):
-#     string = name
-#     if isinstance(Object, h5py.Dataset):
-#         try:
-#             string += Object.dtype.__str__()+"," + Object.size.__str__()+"," + Object.shape.__str__()
-#         except TypeError:
-#             # print("Dataset not NumPy compatible.")
-#             string += ",Uncompatible DataType,,"
-#     else:
-#         string += ",,,"
-#     appendToCSV(string, False)
+def recurExplore(name, Object):
+    string = name
+    if isinstance(Object, h5py.Dataset):
+        try:
+            string += Object.dtype.__str__()+"," + Object.size.__str__()+"," + Object.shape.__str__()
+        except TypeError:
+            # print("Dataset not NumPy compatible.")
+            string += ",Uncompatible DataType,,"
+    else:
+        string += ",,,"
+    appendToCSV(string, False)
 
-# file.visititems(recurExplore)
+file.visititems(recurExplore)
 print("Done!\n")
 
 print("Task 3:")
